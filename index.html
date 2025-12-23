@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For Mariam❤️</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #ffccd9, #ffe5ec);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* FLOATING EMOJIS FIXED */
+    #hearts {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .heart-float {
+      position: absolute;
+      bottom: -40px;
+      animation: floatUp linear forwards;
+      opacity: 0.8;
+      text-shadow: 0 0 12px rgba(255,120,160,0.8);
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) translateX(0) scale(0.8);
+        opacity: 0;
+      }
+      20% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-120vh) translateX(40px) scale(1.4);
+        opacity: 0;
+      }
+    }
+
+    /* LOCK SCREEN */
+    .lock-screen {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .lock-screen input {
+      padding: 12px;
+      border-radius: 25px;
+      border: none;
+      width: 240px;
+      margin-top: 15px;
+      text-align: center;
+    }
+
+    .lock-screen button {
+      margin-top: 15px;
+      padding: 10px 30px;
+      border-radius: 25px;
+      border: none;
+      background: #ff4d6d;
+      color: white;
+      cursor: pointer;
+      font-size: 1.1rem;
+    }
+
+    header {
+      text-align: center;
+      padding: 60px 20px 30px;
+      position: relative;
+      z-index: 2;
+    }
+
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      color: #ff1a45;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .letter {
+      background: rgba(255,230,240,0.95);
+      border-radius: 35px;
+      padding: 40px;
+      box-shadow: 0 15px 35px rgba(255,77,109,0.3);
+      line-height: 2;
+    }
+
+    .letter img {
+      width: 100%;
+      border-radius: 25px;
+      margin-bottom: 25px;
+      box-shadow: 0 0 20px rgba(255,77,109,0.4);
+    }
+
+    .letter h2 {
+      color: #ff1a45;
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 15px;
+    }
+
+    .counter {
+      font-weight: 600;
+      color: #ff1a45;
+      margin-bottom: 20px;
+    }
+
+    .signature {
+      margin-top: 30px;
+      font-style: italic;
+      color: #ff4d6d;
+      font-weight: 600;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: #ff4d6d;
+      position: relative;
+      z-index: 2;
+    }
+
+    #content { display: none; }
+  </style>
+</head>
+<body>
+
+<div id="hearts"></div>
+
+<div class="lock-screen" id="lock">
+  <h1>🔒 Private Love Letter</h1>
+  <p>Tap to unlock my heart ❤️</p>
+  <input type="password" id="password" placeholder="Password">
+  <button onclick="unlock()">Open ❤️</button>
+  <p id="error" style="color:red;"></p>
+</div>
+
+<div id="content">
+
+  <!-- AUDIO -->
+  <audio id="music" loop>
+    <source src="Billie Eilish - hotline (edit).mp3" type="audio/mpeg">
+  </audio>
+
+  <header>
+    <h1>Dear Mariam ❤️</h1>
+    <p>Since November 2023, my heart chose you</p>
+  </header>
+
+  <div class="container">
+    <div class="letter">
+
+      <!-- IMAGE -->
+      <img src="WhatsApp Image 2025-12-23 at 12.01.02 AM.jpeg" alt="Us together">
+
+      <h2>I'm Sorry 💌</h2>
+
+      <div class="counter" id="daysCounter"></div>
+
+      <p>
+        Mariam 💖,  
+        from the very first moment our paths crossed in November 2023 ✨,
+        my heart quietly chose you — even before I understood love 💫.
+
+        You became my favorite feeling 🌷,
+        the calm in my chaos 🤍,
+        and the smile my soul looks for 😊.
+        With you, the world feels softer,
+        warmer,
+        and more beautiful 💕.
+
+        I love the way you exist —
+        effortlessly beautiful 🌸,
+        deeply kind 🫶,
+        and incredibly precious to me 💞.
+        Loving you feels safe,
+        and forever feels possible ♾️💍.
+
+        No matter where life takes us,
+        my heart will always find its way back to you ❤️.
+        Today, tomorrow,
+        and every day after —
+        I choose you 💕
+      </p>
+
+      <p class="signature">
+        Your infinity lover ♾️💖,<br>
+        Mohamed 🫶
+      </p>
+
+    </div>
+  </div>
+
+  <footer>
+    Made with endless love, only for Mariam ❤️
+  </footer>
+
+</div>
+
+<script>
+  function unlock() {
+    if (document.getElementById('password').value === 'LOVE') {
+      document.getElementById('lock').style.display = 'none';
+      document.getElementById('content').style.display = 'block';
+
+      const music = document.getElementById('music');
+      music.volume = 0.7;
+      music.play().catch(() => {});
+
+      startCounter();
+      startFloatingEmojis();
+    } else {
+      document.getElementById('error').innerText = 'Wrong password ❤️';
+    }
+  }
+
+  function startCounter() {
+    const start = new Date('2023-11-01');
+    const now = new Date();
+    const days = Math.floor((now - start) / (1000 * 60 * 60 * 24));
+    document.getElementById('daysCounter').innerText =
+      `It's been ${days} days of loving you 💕`;
+  }
+
+  function startFloatingEmojis() {
+    const emojis = ['💖','💕','💘','🌸','🦋','✨','💫','🌷','❤️'];
+    const container = document.getElementById('hearts');
+
+    setInterval(() => {
+      const el = document.createElement('div');
+      el.className = 'heart-float';
+      el.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+      el.style.left = Math.random() * 100 + 'vw';
+      el.style.fontSize = 18 + Math.random() * 28 + 'px';
+      el.style.animationDuration = 7 + Math.random() * 5 + 's';
+
+      container.appendChild(el);
+
+      setTimeout(() => el.remove(), 12000);
+    }, 250);
+  }
+</script>
+
+</body>
+</html>
